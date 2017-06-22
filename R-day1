@@ -1,0 +1,156 @@
+> sqrt(4)#平方
+[1] 2
+> exp(1)#指数
+[1] 2.718282
+> log10(1000)#对数
+[1] 3
+> round(1.1234,2)#取整
+[1] 1.12
+> round(-1.9876,2)
+[1] -1.99
+> floor(1.1234)
+[1] 1
+> ceiling(1.1234)
+[1] 2
+> #round第一个参数为要改变的值，第二个为四舍五入保留的位数 floor()向下取整 ceiling()向上取整
+> pi#π
+[1] 3.141593
+> sin(pi/6)
+[1] 0.5
+> cos(pi/6)
+[1] 0.8660254
+> tan(pi/6)
+[1] 0.5773503
+> asin(0.5)
+[1] 0.5235988
+> #类推反三角函数
+> #以下为分布函数和分位数函数
+> dnorm(1.98)
+[1] 0.05618314
+> pnorm(1.98)
+[1] 0.9761482
+> qnorm(0.975)
+[1] 1.959964
+> dnorm(0)
+[1] 0.3989423
+> pnorm(0)
+[1] 0.5
+> qnorm
+function (p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE) 
+.Call(C_qnorm, p, mean, sd, lower.tail, log.p)
+<bytecode: 0x00000000041c08b8>
+<environment: namespace:stats>
+> qnorm(0)
+[1] -Inf
+> #输出
+> print(sin(pi/2))
+[1] 1
+> #cat()函数显示多项内容，包括数值和文本，文本包在两个单撇号或双撇号中
+> cat('sin(pi/2)=',sin(pi/2),'\n')
+Error: unexpected input in cat('sin(pi/2)=',sin(pi/2),'\n'
+> cat('sin(pi/2)=',sin(pi/2),'\n')
+sin(pi/2)= 1 
+> cat('log10(2)=',log10(2),'log10(5)=',log10(5),'\n')
+log10(2)= 0.30103 log10(5)= 0.69897 
+> #向量计算与变量赋值
+> x1<-1:10
+> x1
+ [1]  1  2  3  4  5  6  7  8  9 10
+> marks<-c(3,5,10,5,6)
+> mars
+Error: object 'mars' not found
+> marks
+[1]  3  5 10  5  6
+> #用pinrt()函数显示向量或在命令行中显示向量时，每行显示的行首会有方括号和数字序号，代表改行显示的第一个行元素的下标
+> #单个数值称为标量
+> 向量可以和一个标量作四则运算，等于每个元素都和这个标量作四则运算
+Error: unexpected input in 向量可以和一个标量作四则运算?
+> #向量可以和一个标量作四则运算，等于每个元素都和这个标量作四则运算
+> x1+200
+ [1] 201 202 203 204 205 206 207 208 209 210
+> #两个等长的向量可以作四则运算，相当于对应元素进行四则运算
+> x2<-x1+x3
+Error: object 'x3' not found
+> x3<-2:20
+> x3
+ [1]  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+> x3<-1:10
+> x2<-x1+x3
+> x2
+ [1]  2  4  6  8 10 12 14 16 18 20
+> #R的许多函数都可以用向量作自变量，结果是自变量的每个元素各自的函数值
+> sqrt(x1)
+ [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490
+ [7] 2.645751 2.828427 3.000000 3.162278
+> m<- c(1,4)
+> sqrt
+function (x)  .Primitive("sqrt")
+> sqrt(c)
+Error in sqrt(c) : non-numeric argument to mathematical function
+> sqrt(m)
+[1] 1 2
+> curve(x^2,-2,2)
+> #curve()函数第二、第三自变量是绘图空间
+> curve(sin(x),0,2*pi)#第二三自变量类推
+> #curve()绘制曲线图
+> #barplot()绘制条形图
+> barplot(c('男生'=10,'女生'=7),main='男女生人数')
+> #plot()绘制散点图
+> #plot()函数第一个自变量是各个点的横坐标值，第二个自变量是对应的纵坐标值
+> plot(1:10,sqrt(1:10))
+> #练习
+> curve(exp(x),-2,2)
+> curve(ln(x),0.01,10)
+Error in ln(x) : could not find function "ln"
+> curve(lne(x),0.01,10)
+Error in lne(x) : could not find function "lne"
+> curve(loge(x),0.01,10)
+Error in loge(x) : could not find function "loge"
+> curve(log(x,base=exp(1)),0.01,10)
+> #读入表格数据
+> #read.csv()或read.table() 
+> #例子：tax.tab<-read.csv("tadxamp.csv",header=TRUE,as.is=true)
+> #程序中header=TRUE指明第一行作为变量名行，选项as.is =TRUE说明字符行列要原样读入而不是转化为因子（factor）
+> #用table()函数计算每个不同值的个数，称为频数
+> #例子：table(tax.tab[,'征收方式'])
+> #得到文件里，相同征收方式的使用数量
+> #还可以统计征收方式和申报渠道交叉分类频数
+> #table(tax.tab[,'征收方式‘],tax.tab[,'申报渠道'])
+> #统计函数
+> #以一个数值型向量为自变量，包括sum(求和)，mean(平均值)，var(样本方差),sd(样本标准差),min(最小值),max(最大值)，range(最小值和最大值)
+> getwd()
+[1] "C:/Users/asus/Documents"
+> #inf指正无穷大
+> #c()函数  把若干个相同类型的值保存在一起，称为一个
+> #length(x)可以求x的长度，长度为0的向量表示为numeric(0)，numeric()函数可以用来初始化一个指定元素个数而元素都等于零的数值型向量
+> numeric(10)
+ [1] 0 0 0 0 0 0 0 0 0 0
+> #不等长向量的运算，如果长度为倍数，则是每次从头重复利用短的一个
+> x1<-c(10,20)
+> x2<-c(1,3,5,7)
+> x1+x2
+[1] 11 23 15 27
+> #如果普通的一元函数以向量为自变量，一般会对每个元素计算，如果自己编写的向量没有考虑向量化问题，可以用Vectorize()
+> #排序函数 sort(x)从小到大，rev(x)从大到小，order(x)返回排序用的下标
+> sort<-c(5 ,12, 3, 7)
+> sort
+[1]  5 12  3  7
+> 
+> sort(sort)
+[1]  3  5  7 12
+> rev(sort)
+[1]  7  3 12  5
+> #排序函数 sort()返回排序结果，rev(x)返回各元素排序次序反转后的结果，order(x)返回排序用的下标
+> order(sort)
+[1] 3 1 4 2
+> #prod()求所有元素的乘积
+> prod(1,2,3)
+[1] 6
+> #cumsum和cumprod计算累加和累乘积
+> cumsum(1:5)
+[1]  1  3  6 10 15
+> sumprod(1:5)
+Error in sumprod(1:5) : could not find function "sumprod"
+> cumprod(1:5)
+[1]   1   2   6  24 120
+> 
