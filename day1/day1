@@ -1,0 +1,10 @@
+def compute(base,update,years):
+    c_money=0
+    while years>0:
+        c_money=(c_money+base)*(1+update)
+        years-=1
+    return round(c_money,2)
+base =1000
+update=0.047
+
+print "total money and years are",compute(base,update,10)
