@@ -1,4 +1,4 @@
-def compute(base,update,years):
+'''def compute(base,update,years):
     c_money=0
     while years>0:
         c_money=(c_money+base)*(1+update)
@@ -8,3 +8,31 @@ base =1000
 update=0.047
 
 print "total money and years are",compute(base,update,10)
+x = float(raw_input('Enter the number'))
+low = 0
+high = x
+guess = (low+high)/2
+while abs(guess**2-x) > 1e-5:
+    if guess**2 < x:
+        high = guess
+    else:
+        low = guess
+    guess = (low+high)/2
+print 'The root of x is', guess'''
+x = 7
+for i in range(2,x):
+    if x % i == 0:
+        print 'x is not a prime!'
+        break
+else:
+    print 'x is a prime!'
+num = 12321
+num_p = 0
+num_t=num
+while num != 0:
+    num_p = num_p * 10 + num % 10
+    num = num / 10
+if num_t == num_p:
+    print 'OK'
+else:
+    print 'NO'
